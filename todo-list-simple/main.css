@@ -1,0 +1,32 @@
+.page-title {
+  text-align: center;
+}
+
+.current-task {
+  list-style: none;
+  border: solid 1px rgb(228, 160, 43);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding-left: 3px;
+}
+
+.current-task:hover {
+  background-color: rgb(250, 211, 135)
+}
+
+.task-list {
+  padding: 5px;
+}
+
+.to-do-tag {
+  margin-bottom: 4px !important;
+}
+
+.page-title {
+  border-bottom: 3px orange solid;
+}
+
+.clearitem {
+  float: right;
+  margin-right: 5px;
+}
