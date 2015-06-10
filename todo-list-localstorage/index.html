@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="jquery" data-semver="2.1.4"
+            src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <h2>Todos</h2>
+
+    <form id="add-todo">
+      <textarea class="input form-control"></textarea>
+      <button class="input add-btn" type="submit">Add</button>
+    </form>
+    <button id="remove">Toggle Completed</button>
+    <hr>
+
+    <ul id="todo-items">
+    </ul>
+
+    <!-- Used as cloning template -->
+    <ul id="item-cloner" style="display: none;">>
+      <li class="todo-item-clone" style="display: none;">
+        <input type="checkbox" class="checkbox">
+        <span class="todo-text"></span>
+      </li>
+    </ul>
+
+    <a href="#" id="change-theme">Change Theme</a>
+
+  </body>
+
+</html>

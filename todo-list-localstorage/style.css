@@ -1,0 +1,17 @@
+li {
+  list-style: none;
+}
+
+.done {
+  color: #AAA;
+  text-decoration: line-through;
+}
+
+.dark {
+  background-color: #444;
+  color: #ddd;
+}
+
+.add-btn {
+  margin-top: -10px !important;
+}
