@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Hangman game in jQuery</title>
+
+    <link rel=stylesheet type="text/css" href="app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+
+    <!--JS scripts-->
+    <script src="hangman-dictionary.js"></script>
+    <script src="hangman.js"></script>
+    <script src="fireworks.js"></script>
+
+</head>
+<body>
+
+    <div class="container game">
+        <div class="row">
+
+            <h2 class="center">Welcome to Hangman!</h2>
+            <h3 class="center">A jQuery hangman game</h3>
+            <p>Use your keyboard to type your responses and the letters below will track your guesses.</p>
+
+            <div id="letter-wrapper">
+                <ul class="letters-grid"></ul>
+            </div>
+
+            <div id="word-wrapper">
+                <ul class="word-grid"></ul>
+            </div>
+
+            <div id="lives" class="col-sm-offset-4 col-sm-4"><span><h1></h1></span></div>
+
+            <button class="btn btn-lg btn-default col-xs-offset-3 col-xs-6 reset-button">
+                RESET
+            </button>
+
+            <div class="col-sm-12 win-lose">
+                <h1 class="show-winner">Winner!</h1>
+                <h1 class="show-loser"></h1>
+            </div>
+
+            <div class="col-sm-6 col-sm-offset-3 gallows">
+                <canvas id="hanging-man">
+
+                </canvas>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="canvas-wrapper">
+        <div class="winner-wrapper">
+            <h1 class="winner">You win!</h1>
+            <form id="doc-win"><button type="submit" class="btn btn-info close-canvas">Back to Game</button></form>
+        </div>
+    </div>
+
+    <div id="loser-wrapper">
+        <h1 class="loser">You lose :(</h1>
+        <form id="doc-lose"><button type="submit" class="btn btn-info close-canvas">Back to Game</button></form>
+    </div>
+
+</body>
+</html>
