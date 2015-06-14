@@ -40,14 +40,14 @@ $(document).ready(function() {
   $("body").removeClass().addClass(theme);
   fillTasks();
   filterComplete();
-  
+
   // Add new task
   $("form#add-todo").submit(function(event) {
     event.preventDefault();
-    
+
     var newTodo = $(this).find("textarea"),
         newTodoLi = $(".todo-item:last").clone(true).show();
-    
+
     pushTasks(newTodo.val());
     $("#todo-items").empty();
     fillTasks();
@@ -55,19 +55,19 @@ $(document).ready(function() {
     localStorage["taskMaster"] = JSON.stringify(todos);
 
   });
-  
+
   // Cross our task and save state
   $(":checkbox").click(function() {
     $(this).parent("li").toggleClass("done");
     setComplete();
   });
-  
+
   // Make this show and hide completed elemented
   $("#remove").on("click", function() {
     $(".todo-item.done").toggle();
     localStorage["show-tasks"] = (localStorage["show-tasks"] === "true" ? false : true);
   })
-  
+
   $("#change-theme").click(function() {
     theme = (theme === "light" ? "dark" : "light");
     localStorage["theme"] = theme;
