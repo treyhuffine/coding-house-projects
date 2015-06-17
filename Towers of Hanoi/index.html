@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Towers of Hanoi</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <div id="app-header">
+      <div class="header-container">
+        <span class="title-span"><h4 class="app-title">Towers of Hanoi</h4></span>
+        <span class="input-span"><input type=number min="1" max="10"></span>
+        <button class="btn btn-primary btn-custom start-btn">Begin</button>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="tower col-sm-3">
+          <div id="tower-1" class="tower-container" data="leftPeg"></div>
+        </div>
+        <div class="tower col-sm-3">
+          <div id="tower-2" class="tower-container" data="middlePeg"></div>
+        </div>
+        <div class="tower col-sm-3">
+          <div id="tower-3" class="tower-container" data="rightPeg"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="winner-wrapper">
+        <h1 class="winner">You win!</h1>
+        <form id="doc-win"><button type="submit" class="btn btn-info close-canvas">Back to Game</button></form>
+    </div>
+  </body>
+</html>

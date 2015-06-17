@@ -1,0 +1,122 @@
+body {
+  background-image: url("tower.jpg");
+  background-size: 100%;
+}
+.header-container {
+  margin-left: 39.3%;
+  margin-right: auto;
+  display: fixed;
+}
+#app-header span{
+  display: inline-block;
+  color: white;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.input-span {
+  margin-top: -10px;
+}
+.tower, .gamepice {
+  cursor: pointer;
+}
+#app-header span input {
+  color: black;
+  margin-right: 5px;
+  height: 35px;
+  margin-top: 20px;
+  text-align: center;
+}
+.app-title {
+  margin-top: 0px;
+  margin-bottom: -20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.tower {
+  border: 2px solid rgb(14, 95, 125);
+  background-color: rgb(18, 121, 144);
+  width: 310px;
+  height: 510px;
+  margin-left: 95px;
+  margin-top:4%;
+  border-radius: 5px;
+  padding: 0px;
+}
+.tower-container {
+  border-bottom: 2px solid black;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+.gamepiece {
+  height: 50px;
+  background-color: gray;
+  border: 2px solid rgb(112, 109, 109);
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1 !important;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+}
+.selected-piece {
+  background-color: orange;
+  border: 2px solid rgb(208, 114, 27);
+}
+.fade-black {
+  z-index: 50;
+  background-color: black;
+  opacity: .7;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#winner-wrapper {
+  z-index: 999;
+  color: white;
+  display: none;
+  position: absolute;
+  left: 38.5%;
+  top: 45%;
+  transform: translateY(-50%);
+}
+.winner {
+  font-size: 6em;
+}
+.close-canvas {
+  width: 100%;
+}
+#block0 {
+  width: 30px;
+}
+#block1 {
+  width: 60px;
+}
+#block2 {
+  width: 90px;
+}
+#block3 {
+  width: 120px;
+}
+#block4 {
+  width: 150px;
+}
+#block5 {
+  width: 180px;
+}
+#block6 {
+  width: 210px;
+}
+#block7 {
+  width: 240px;
+}
+#block8 {
+  width: 270px;
+}
+#block9 {
+  width: 300px;
+}
