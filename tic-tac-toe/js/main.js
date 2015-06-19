@@ -50,19 +50,13 @@ function setCellHeight() {
   $(".cell").css({'height': cw+'px'});
   $(".marker").css({'font-size': fw+'px'});
 }
-Game.checkNewGame = function() {
-  console.log("check new game");
-  for (var key in Game.board) {
-    if (Game.board[key].indexOf(1) > -1 || Game.board[key].indexOf(-1)) {
-      return false;
-    }
-  }
-  console.log("no new game");
-  return true;
-};
+Game.rowLabels = ["a", "b", "c"];
+Game.board = {a: [0,0,0], b: [0,0,0], c: [0,0,0]};
 Game.setNewBoard = function() {
-  console.log("Setting new board");
-  FB.gameRef.set({});
+  console.log("NEW BOARD SET");
+  Game.board = {a: [0,0,0], b: [0,0,0], c: [0,0,0]};
+  FB.gridRef.set(Game.board);
+  FB.turnRef.set({});
   Game.currentTurn = "x";
   FB.turnRef.update({turn: this.currentTurn});
   $(".your-turn").removeClass("your-turn");
@@ -71,9 +65,17 @@ Game.setNewBoard = function() {
   } else {
     $("#second-player").addClass("your-turn");
   }
-  Game.board = {a: [0,0,0], b: [0,0,0], c: [0,0,0]};
   $(".marker").empty();
   $(".marker").removeClass("x o");
+};
+Game.checkNewGame = function() {
+  for (var i = 0; i < 3; i++) {
+    if (Game.board[Game.rowLabels[i]].indexOf(1) > -1 || Game.board[Game.rowLabels[i]].indexOf(-1) > -1) {
+      return false;
+    }
+  }
+  console.log("no new game");
+  return true;
 };
 Game.setPieceArray = function(currentCell, currentMark) {
   var letter = currentCell.attr("data-letter"),
@@ -90,7 +92,6 @@ Game.setX = function(letter, number) {
 Game.setO = function(letter, number) {
   Game.board[letter][number] = -1;
 };
-Game.rowLabels = ["a", "b", "c"];
 Game.checkWin = function() {
   this.checkRowWin();
   this.checkColumnWin();
@@ -134,14 +135,12 @@ Game.checkDiagonalWin = function() {
 };
 Game.checkDiagonal1 = function() {
   var diagTest = Game.board["a"]["0"] + Game.board["b"]["1"] + Game.board["c"]["2"];
-  console.log("DIAG 1", diagTest);
   if (diagTest === 3 || diagTest === -3) {
     Game.win(diagTest);
   }
 };
 Game.checkDiagonal2 = function() {
   var diagTest = Game.board["a"]["2"] + Game.board["b"]["1"] + Game.board["c"]["0"];
-  console.log("DIAG 2", diagTest);
   if (diagTest === 3 || diagTest === -3) {
     Game.win(diagTest);
   }
@@ -186,7 +185,6 @@ Game.playersTurn = function(mark) {
 Game.emptySpot = function(currentCell) {
   var letter = currentCell.attr("data-letter"),
       number = currentCell.attr("data-number");
-      console.log(Game.board[letter][number]);
   return Game.board[letter][number] === 0;
 };
 Game.fillGrid = function(grid) {
@@ -220,7 +218,6 @@ FB.gridRef.on("value", redrawGrid);
 FB.turnRef.on("value", storeLastMark);
 
 function storeLastMark(snap) {
-  console.log("turn: ", snap.val());
   if(snap.val()) {
     Game.currentTurn = snap.val().turn;
   }
@@ -231,7 +228,6 @@ function assignPlayers(snap) {
   if (!players) {
     return;
   }
-  console.log("PLAYAS",players);
   if (players) {
     Game.players = players;
     Game.x = players.x;
@@ -243,7 +239,6 @@ function assignPlayers(snap) {
 
 function redrawGrid(snap) {
   var grid = snap.val(), mark;
-  console.log("grid", grid);
   if (grid) {
     Game.fillGrid(grid);
   }
