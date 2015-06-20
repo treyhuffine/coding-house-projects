@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Table Sort</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <input id="search-bar" class="search-bar" type="search" placeholder="Filter..." rows="4">
+    <script id="entry-template" type="text/x-handlebars-template">
+      <table id="main-table">
+        <thead id="table-head">
+          <tr id="header-row">
+            {{#each headers}}
+            <th class="theader" id="head-{{@index}}" data-index="{{@index}}">
+              {{this}}
+            </th>
+            {{/each}}
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          {{#each tableInput}}
+          <tr>
+            {{#each this}}
+            <td class="tdata">
+              {{this}}
+            </td>
+            {{/each}}
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </script>
+
+    <div id="hb-container"></div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
