@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="contacts" ng-controller="contactsCtrl">
+  <head>
+    <meta charset="utf-8">
+    <title>Contacts</title>
+
+    <script data-require="angular.js@1.4.1" data-semver="1.4.1" src="https://code.angularjs.org/1.4.1/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-4 input-wrapper">
+          <div class="search-wrapper">
+            <hr>
+              <h3 class="search-header">Search</h3>
+              <div class="input-group">
+                <input type="search" placeholder="Start typing to search..." class="form-control search-form" ng-model="searchText">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+              </div>
+          </div>
+          <hr>
+          <h3>Add Contact</h3>
+          <div class="first-name-wrapper">
+            <input type="text" placeholder="First Name" class="form-control" ng-model="firstName" required>
+          </div>
+          <div class="last-name-wrapper">
+            <input type="text" placeholder="Last Name" class="form-control" ng-model="lastName">
+          </div>
+          <div class="email-wrapper">
+            <input type="email" placeholder="Email" class="form-control" ng-model="email" required>
+          </div>
+          <div class="phone-wrapper">
+            <input type="test" placeholder="Phone Number" class="form-control" ng-model="phone">
+          </div>
+          <button type="button" name="button" class="btn btn-success btn-block form-control" ng-click="submit()">Create Contact</button>
+        </div>
+        <div class="col-xs-8">
+          <table id="contact-table" class="table table-striped">
+            <thead class="table-head contanct">
+              <tr>
+                <th>
+                  <p class="gravatar-text">Gravatar</p>
+                </th>
+                <th>
+                  <p class="header-text" ng-click="order('firstName')">Name<span class="glyphicon glyphicon-sort sort-glyph"></span></p>
+                </th>
+                <th>
+                  <p class="header-text" ng-click="order('email')">Email<span class="glyphicon glyphicon-sort sort-glyph"></span></p>
+                </th>
+                <th>
+                  <p class="header-text" ng-click="order('phone')">Phone<span class="glyphicon glyphicon-sort sort-glyph"></span></p>
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="contact in contactList | filter: searchText | orderBy:predicate:reverse" ng-dblclick="contact.editing = true">
+                <td class="gravatar-container">
+                  <img ng-src="http://www.gravatar.com/avatar/{{contact.gravatar}}" alt="Description" class="gravatar"/>
+                </td>
+                <td class="name-container">
+                  <span ng-hide="contact.editing">{{contact.firstName + " " + contact.lastName}}</span>
+                  <span ng-show="contact.editing">
+                    <input ng-model="contact.firstName" class="form-control">
+                    <input ng-model="contact.lastName" class="form-control">
+                 </span>
+                </td>
+                <td class="email-container">
+                  <span ng-hide="contact.editing">{{contact.email}}</span>
+                  <span ng-show="contact.editing">
+                    <input ng-model="contact.email" class="form-control">
+                  </span>
+                </td>
+                <td class="phone-container">
+                  <span ng-hide="contact.editing">{{contact.phone}}</span>
+                  <span ng-show="contact.editing">
+                    <input ng-model="contact.phone" class="form-control">
+                  </span>
+                </td>
+                <td>
+                  <p ng-hide="contact.editing" class="remove" ng-click="removeItem(contact)"><i class="glyphicon glyphicon-remove"></i></p>
+                  <button ng-show="contact.editing" class="btn btn-success btn-xs" ng-click="submitChange(contact)">Submit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

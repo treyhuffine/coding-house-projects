@@ -1,0 +1,47 @@
+.form-control {
+  margin-top: 10px;
+}
+.input-wrapper {
+  border-right: 2px solid rgb(218, 218, 218);
+  height: 100vh;
+  background-color: rgb(244, 207, 151);
+}
+.sort-glyph {
+  font-size: .8em;
+  margin-left: 5px;
+}
+.header-text, .gravatar-text {
+  margin-bottom: 0;
+  cursor: default;
+}
+.header-text:hover {
+  color: rgb(230, 143, 29);
+}
+.search-header {
+  margin-top: 0;
+}
+.input-group-addon {
+  padding-top: 5px;
+  background-color: white;
+}
+.search-form {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.gravatar {
+  width: 25%;
+}
+td {
+  vertical-align: middle !important;
+  font-size: 1.5vw;
+}
+th {
+  font-size: 1.5vw;
+}
+.remove {
+  margin-bottom: 0;
+  font-size: 1vw;
+  font-weight: lighter;
+  color: rgb(247, 149, 142);
+  cursor: pointer;
+}
